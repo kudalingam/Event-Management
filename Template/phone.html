@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Phone Auth</title>
+ <link href="style.css" rel="stylesheet" type="text/css">
+ <style>
+     body {
+    font-family: Arial;
+    color:green;
+    font-size:0.95em;
+    background-repeat:no-repeat;
+    background-size:100% 170%;
+}
+
+.form-head {
+    color: #191919;
+    font-weight: normal;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.error-message {
+    padding: 7px 10px;
+    background: #fff1f2;
+    border: #ffd5da 1px solid;
+    color: #d6001c;
+    border-radius: 4px;
+    margin: 30px 10px 10px 10px;
+}
+
+.demo-table {
+    background:grey;
+    border-spacing: initial;
+    margin: 15px auto;
+    word-break: break-word;
+    table-layout: auto;
+    line-height: 1.8em;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color:hotpink;
+	width: 350px;
+	height: 500px;
+	color:blue;
+	top: -5%;
+	left: 48%;
+	position: absolute;
+	transform: translate(50px, 50px);
+	box-sizing: border-box; 
+	padding: 70px 30px;
+}
+
+.demo-table .label {
+    color: #888888;
+}
+
+.demo-table .field-column {
+    padding: 15px 10px;
+}
+
+.demo-input-box {
+    padding: 13px;
+    border: #CCC 1px solid;
+    border-radius: 4px;
+    width: 100%;
+}
+.otp{
+    padding: 13px;
+    background-color:black;
+    color:white;
+    cursor: pointer;
+    border-radius: 4px;
+    border: rgb(171, 177, 171) 1px solid;
+    font-size: 1.1em;
+    width: 100%;
+    
+    
+}
+.sendcode{
+    padding: 6.5px;
+    background-color:green;
+    color:white;
+    cursor: pointer;
+    border-radius: 2px;
+    border: rgb(171, 177, 171) 1px solid;
+    font-size: 1.1em;
+    width: 50%;
+}
+
+.response-text {
+    max-width: 380px;
+    font-size: 1.5em;
+    text-align: center;
+    background: #fff3de;
+    padding: 42px;
+    border-radius: 3px;
+    border: #f5e9d4 1px solid;
+    font-family: arial;
+    line-height: 34px;
+    margin: 15px auto;
+}
+
+.terms {
+    margin-bottom: 5px;
+}
+
+.dashboard {
+    background: #d2edd5;
+    text-align: center;
+    margin: 15px auto;
+    line-height: 1.8em;
+    color: #333;
+    border-radius: 4px;
+    padding: 30px;
+    max-width: 400px;
+    border: #c8e0cb 1px solid;
+}
+.error-info {
+    color: #FF0000;
+    margin-left: 10px;
+}
+a.logout-button {
+    color: #09f;
+}
+ </style>
+ </head>
+<body>
+    
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase.js"></script>
+
+ 
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <script>
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+   apiKey: "AIzaSyBLCvO-sJm-mAJmIAGE4fLzX0seFkAZPnw",
+        authDomain: "login-page-5bd13.firebaseapp.com",
+        databaseURL: "https://login-page-5bd13.firebaseio.com",
+        projectId: "login-page-5bd13",
+        storageBucket: "login-page-5bd13.appspot.com",
+        messagingSenderId: "1005889324846",
+        appId: "1:1005889324846:web:31afc0e2478858cb9a1cbf",
+        measurementId: "G-WMXDK9GNE7"
+      };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+      <img src="5.png"alt="logo" width="700" height="600">
+    <div class="demo-table">
+        <div class="form-head"> </div>
+            <div class="form-head" style="color:brown"><b>Get OTP </b>
+                </div>
+                    <div class="field-column">
+                      <div>
+                          <label for="phoneAuth">Enter the Phone Number</label><span id="number" class="error-info"></span>
+                      </div>
+                    <div>
+                        <input type="text" id="number" placeholder="+91-Enter the Phone Number"class="demo-input-box">
+                        <br><br><div id="recaptcha-container"></div>
+                        <input type="submit" value="Send code" onclick="phoneAuth()"class="sendcode">
+                    </div>
+                    </div><br>
+                    
+                    <div class="field-column">
+                      <div>
+                          <label for="verificationcode">Enter the Verification Code</label><span id="code" class="error-info"></span>
+                      </div>
+                        <input type="text" id="verificationcode" placeholder="Enter the Verification Code"class="demo-input-box">
+                       <input type="submit" value="Verify Code" onclick="codeverify()"class="sendcode">
+                    </div>
+</div>
+                       
+                       
+            <script>
+                 window.onload=function(){
+                      render();
+
+        };
+
+function render(){
+    window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+
+}
+
+function phoneAuth(){
+    var number=document.getElementById('number').value;
+    firebase.auth().signInWithphoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult){
+        window.confirmationResult=confirmationResult;
+        coderesult=confirmationResult;
+        console.log(coderesult);
+        alert("Message Sent!");
+    }).catch(function(error){
+        alert(error.message);
+    });
+}
+function codeverify(){
+    var code=document.getElementById('verificationcode').value;
+    coderesult.confirm(code).then(function(result){
+        alert("Sucessfully Registered");
+        var user=result.user;
+        console.log(user);
+        window.location="googlelogin.html";
+    }).catch(function(error){
+        alert(error.message);
+    });
+
+}
+     </script>
+       
+    
+     </body>
+</html>  

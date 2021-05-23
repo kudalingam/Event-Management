@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Form</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%
+}
+
+p {
+    color: grey
+}
+
+#heading {
+    text-transform: uppercase;
+    color: #673AB7;
+    font-weight: normal
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    padding: 5px 30px;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+.form-card {
+    text-align: left
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform input,
+#msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    font-size: 16px;
+    letter-spacing: 1px
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #673AB7;
+    outline-width: 0
+}
+
+#msform .action-button {
+    width: 100px;
+    background: #673AB7;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: right
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background-color: #311B92
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background-color: #000000
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    position: relative;
+    width:500px;
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #673AB7;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left
+}
+
+.purple-text {
+    color: #673AB7;
+    font-weight: normal
+}
+
+.steps {
+    font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right
+}
+
+.fieldlabels {
+    color: gray;
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey;
+}
+
+#progressbar .active {
+    color: #673AB7
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+}
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+#progressbar #experience:before {
+    font-family: FontAwesome;
+    content: "\f073";
+}
+#progressbar #location:before {
+    font-family: FontAwesome;
+    content: "\f041"
+}
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f15c"
+}
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #673AB7
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar {
+    background-color: #673AB7
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+.row a{
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 15px;
+    color:Red;
+}
+
+.row a:hover
+{
+	cursor: pointer;
+    color: green;
+}
+.container-fluid{
+    background: url(wave1.png);
+}
+.img{
+	display: flex;
+	justify-content:center
+}
+.img img{
+	width: 500px;
+}
+body{
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	font-family: serif;
+}
+
+.loginbox{
+	width: 800px;
+	height: 800px;
+	background:white;
+	color:red;
+    top:-3%;
+	left: 0%;
+	position: absolute;
+    border-style:solid;
+    border-color: grey;
+	transform: translate(50px, 50px);
+	box-sizing: border-box; 
+	padding: 30px 30px;
+}
+.signup{
+	border:100%;
+}
+
+
+h1{
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    border-style: groove;
+    border-color: darkgrey;
+    height: 40px;
+    color: black;
+    font-size: 20px;
+}
+
+.loginbox input[type="submit"]
+{
+    border: none;
+    background: orange;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: grey;
+    color: lightgreen;
+}
+
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: royalblue;
+}
+
+.loginbox a:hover
+{
+	cursor: pointer;
+    color: yellowgreen;
+}
+form {
+    margin-top:10%;
+    padding:0px 0px;
+    border:none;
+    float: left;
+    border-radius:15px;
+    width:550px;
+    margin:25px auto;
+    }
+form fieldset {
+    border:none;
+    position:relative;
+    }
+
+input.btn-primary {
+    background-color:#51A2DA;
+    border-color:#51A2DA;
+    }
+
+form fieldset input {
+    padding:30px 6px 6px 12px !important;
+    height:50px !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-bottom:solid 1px #dedede !important;
+  color: black;
+}
+
+form fieldset label {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  color:black;
+    font-weight:0px;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+}
+
+form fieldset input:valid + label, form fieldset input:focus + label {
+  color: #51A2DA;
+  font-weight: 100px;
+  font-size: 20px;
+  -webkit-transform: translate3d(0, -20px, 0);
+          transform: translate3d(0, -20px, 0);
+}
+#toggle{
+	position: relative;
+    transform: translateY(-50%);
+	left:90%;
+	top:60%;
+    width: 25px;
+    height: 25px;
+    background: url(show.png);
+    background-size: cover;
+    cursor: pointer;
+}
+#toggle.hide{
+	background: url(hide.png);
+    background-size: cover;
+
+}
+
+</style>
+</head>
+<body>
+    <img src="expo-exhibition-concept-d-isometric-view-vector-include-stand-panel-person-showcase-rack-trade-illustration-154535097.jpg" width=999 height=630>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>	
+    <div class="loginbox">
+	<b><h1 style="color:blueviolet" align="left"><b>Create an Account </b></h1><hr>
+    <form action="connect.php" method="POST" onsubmit="return check()"> 
+        <ul id="progressbar">
+            <li class="active" id="personal"><strong>Personal</strong></li> 
+            <li id="experience"><strong>Experience</strong></li>
+            <li id="location"><strong>Location</strong></li>
+            <li id="payment"><strong>File</strong></li>
+            <li id="confirm"><strong>Finish</strong></li>
+        </ul>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+	<div class="signup">
+        <fieldset>
+            <input name="Fname" type="text" autocomplete="off" required="" class="form-control">
+            <label >Name</label>
+          </fieldset>
+          <fieldset>
+            <input name="email" type="email" autocomplete="off" required="" class="form-control">
+            <label >Email Address</label>
+          </fieldset>
+          <fieldset>
+            <input name="phonenumber" type="number" autocomplete="off" required="" class="form-control" min="0" max="9999999999">
+            <label >Phone number</label>
+          </fieldset>
+          <fieldset>
+            <input id="password"name="pass" type="password" autocomplete="off" required="" class="form-control">
+            <label >Password</label>							
+          </fieldset>
+          <fieldset>
+            <input id="password" name="repass" type="password" autocomplete="off" required="" class="form-control">
+            <label >Confirm Password</label>					
+          </fieldset>
+      <input type="submit" name="submit" value="Submit"> <br>
+      <h6 style=" color:slategray"><b>Already have an Account?</b><a href="log1.php"><b>Sign In</b></a><br></h6>
+      <input type="submit" name="submit" class="next action-button" value="Next" />
+    </div>
+    </form>
+    </b>
+   	<script type="text/javascript" src="js/main.js"></script>
+
+
+</div>
+<script type='text/javascript'>$(document).ready(function(){
+
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var opacity;
+    var current = 1;
+    var steps = $("fieldset").length;
+    
+    setProgressBar(current);
+    
+    $(".next").click(function(){
+    
+    current_fs = $(this).parent();
+    next_fs = $(this).parent().next();
+    
+    //Add Class Active
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+    
+    //show the next fieldset
+    next_fs.show();
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+    step: function(now) {
+    // for making fielset appear animation
+    opacity = 1 - now;
+    
+    current_fs.css({
+    'display': 'none',
+    'position': 'relative'
+    });
+    next_fs.css({'opacity': opacity});
+    },
+    duration: 500
+    });
+    setProgressBar(++current);
+    });
+    
+    $(".previous").click(function(){
+    
+    current_fs = $(this).parent();
+    previous_fs = $(this).parent().prev();
+    
+    //Remove class active
+    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+    
+    //show the previous fieldset
+    previous_fs.show();
+    
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+    step: function(now) {
+    // for making fielset appear animation
+    opacity = 1 - now;
+    
+    current_fs.css({
+    'display': 'none',
+    'position': 'relative'
+    });
+    previous_fs.css({'opacity': opacity});
+    },
+    duration: 500
+    });
+    setProgressBar(--current);
+    });
+    
+    function setProgressBar(curStep){
+    var percent = parseFloat(100 / steps) * curStep;
+    percent = percent.toFixed();
+    $(".progress-bar")
+    .css("width",percent+"%")
+    }
+    
+    $(".submit").click(function(){
+    return false;
+    })
+    
+    });</script>
+</body>
+</html>

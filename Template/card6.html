@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins',sans-serif;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: white;
+    }
+    .contain{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 40px 0;
+    }
+    .contain .cardd{
+        position: relative;
+        width: 300px;
+        height: 400px;
+        margin: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contain .cardd .imgX{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 400px;
+    }
+    .contain .cardd .cont{
+        position: absolute;
+        bottom: -160px;
+        width: 100%;
+        height: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        flex-direction: column;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 -10x 10px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        transition: bottom 0.5s;
+        transition-delay: 0.08s;
+    }
+    .contain .cardd:hover .cont{
+        bottom: 0px;
+        transition-delay: 0s;
+    }
+    .contain .cardd .cont .contX h3{
+        color:#fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0 15px;
+        line-height: 1.1em;
+        transition: 0.5s;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition-delay: 0.6s;
+    }
+    .contain .cardd:hover .cont .contX h3{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    .contain .cardd .cont .contX h3 span{
+        font-size: 12px;
+        font-weight: 300;
+        text-transform: initial;
+    }
+    .contain .cardd .cont .sci{
+        position: relative;
+        bottom: 10px;
+        display: flex;
+    }
+    .contain .cardd .cont .sci li{
+        list-style: none;
+        margin: 0 10px;
+        transform: translateY(40px);
+        transition: 0.5s;
+        opacity: 0;
+        transition-delay: calc(0.2s * var(--i));
+    }
+    .contain .cardd:hover .cont .sci li{
+        transform: translateY(0px);
+        opacity: 1;
+
+    }
+    .contain .cardd .cont .sci li a{
+        color: #fff;
+        font-size: 24px;
+    }
+</style>
+<body>
+    <section>
+        <div class="contain">
+            <div class="cardd">
+            <div class="imgX">
+            <img src="images/f2.jpg" alt="">
+        </div>
+        <div class="cont">
+            <div class="contX">
+            <h3>Mr. Alex Benjamin<br><span>General Manager</span> </h3>
+            </div>
+            <ul class="sci">
+                <li style="--i:1;"><a href=""><i class="fa fa-twitter"></i></a></li>
+                <li style="--i:2;"><a href=""><i class="fa fa-instagram"></i></a></li>
+                <li style="--i:3;"><a href=""><i class="fa fa-facebook"></i></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="cardd">
+            <div class="imgX">
+            <img src="images/f4.jpg" alt="">
+        </div>
+        <div class="cont">
+            <div class="contX">
+            <h3>Shilpa Krish<br><span>HR Manager</span> </h3>
+            </div>
+            <ul class="sci">
+                <li style="--i:1;"><a href=""><i class="fa fa-twitter"></i></a></li>
+                <li style="--i:2;"><a href=""><i class="fa fa-instagram"></i></a></li>
+                <li style="--i:3;"><a href=""><i class="fa fa-facebook"></i></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="cardd">
+            <div class="imgX">
+            <img src="images/f5.jpg" alt="">
+        </div>
+        <div class="cont">
+            <div class="contX">
+            <h3>S Krish<br><span>Technician</span> </h3>
+            </div>
+            <ul class="sci">
+                <li style="--i:1;"><a href=""><i class="fa fa-twitter"></i></a></li>
+                <li style="--i:2;"><a href=""><i class="fa fa-instagram"></i></a></li>
+                <li style="--i:3;"><a href=""><i class="fa fa-facebook"></i></a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </section>
+</body>
+</html>

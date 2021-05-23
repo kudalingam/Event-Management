@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f1f1f1;
+            padding: 20px;
+            font-family: Arial;
+        }
+        /* Center website */
+        
+        .main {
+            max-width: 100%;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 50px;
+            word-break: break-all;
+        }
+        
+        .row {
+            margin: 10px 16px;
+        }
+        /* Add padding BETWEEN each column */
+        
+        .row,
+        .row>.column1s {
+            padding: 8px;
+        }
+        /* Create three equal columns that floats next to each other */
+        
+        .column {
+            position: relative;
+            float: left;
+            width: 33.33%;
+            display: none;
+            object-fit: cover;
+            /* Hide all elements by default */
+        }
+        /* Clear floats after rows */
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Content */
+        
+        .content1 {
+            background-color: white;
+            padding: 10px;
+        }
+        /* The "show" class is added to the filtered elements */
+        
+        .show {
+            display: block;
+        }
+        /* Style the buttons */
+        
+        .btn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            background-color: white;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #ddd;
+        }
+        
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+        
+        .box {
+            margin: 0;
+            width: 250%;
+            padding: 0px;
+            position: relative;
+        }
+        .btn a{
+            position: absolute;
+            width: 120px;
+            font-size: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            letter-spacing: 0px;
+            text-decoration: none;
+            text-align: center;
+            /*-webkit-box-reflect: below 1px linear-gradient(transparent,#0004);*/
+        }
+        .btn a::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg,#fb0094,#00f,#0f0,#ff0,#f00,#fb0094,#00f,#0f0,#ff0,#f00);
+            background-size: 100%;
+            opacity: 0;
+            transition: 0.5s;
+            animation: animate 20s linear infinite;
+        }
+        .btn a::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg,#fb0094,#00f,#0f0,#ff0,#f00,#fb0094,#00f,#0f0,#ff0,#f00);
+            background-size: 400%;
+            transition: 0.5s;
+            filter: blur(20px);
+            opacity: 0;
+            animation: animate 20s linear infinite;
+        }
+        .btn a:hover::before,
+        .btn a:hover::after{
+            opacity: 1;
+        }
+        @keyframes animate{
+            0%
+            {
+                background-position: 0 0;
+            }
+            50%
+            {
+                background-position: 300% 0;
+            }
+            100%
+            {
+                background-position: 0 0;
+            }
+        }   
+        .btn a span{
+            position: absolute;
+            display: block;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            text-align: center;
+            background:#0c0c0c;
+            color: rgba(255,255,255,0.5);
+            transition: 0.5s;
+            z-index: 1;
+
+        }
+        .btn a:hover span{
+            color: rgba(255,255,255,1);
+
+        }
+        .btn a span::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.2);
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav style="color:aqua;" class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <!--li> <a href="http://localhost/login/index.php"><i style="color:tomato; font-size: 1.5em;"class="fab fa-google-plus-square"></i> Sign In</a></li>
+                <li><button style="background:transparent; width:80px; padding-top: 15px;" onclick="document.getElementById('modal-wrapper').style.display='block'"><span class="glyphicon glyphicon-log-in"> Login </span></button></li>
+                <li class="dropdown"><a class="active" class="dropdown-toggle" data-toggle="dropdown" href="#"><i style="font-size: 1.5em;"class="far fa-user"> Profile</i></a>
+                  <ul class="dropdown-menu" style="margin-top:-30%; min-width:20px;">
+                      <li><a href="view.php"><i class="fas fa-eye"></i> View</li>
+                      <li><a href="http://localhost/google_login/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</li>
+                  </ul>
+                  <li style=" border:10px; color:black;" ><a href="http://localhost/login/logout.php"><i class="fas fa-sign-out-alt"></i> LOGOUT</li>
+                  <li color="white"><button class="btn btn-danger navbar-btn" color="white";><a href="http://localhost/login/logout.php" color="white"><i class="fas fa-sign-out-alt"></i> LOGOUT</button></li>
+                  <li class="btn"><a href="http://localhost/login/logout.php"><span><i class="fas fa-sign-out-alt"></i> LOGOUT</span></a></li-->
+                    <li><a href="Home.html"><i class="fa fa-home"></i> Home</a></li>
+
+                    <li><a href="about.html"><i class="fa fa-info-circle"></i> ABOUT</a></li>
+                    <li><a href="portfolio.html"><i class="fa fa-cogs"></i> SERVICES</a></li>
+                    <li class="active"><a href="gallery.html"><i class="fa fa-image"></i> GALLERY</a></li>
+                    <li><a href="Enquiry.html"><i class="fa fa-shopping-cart"></i> ORDER</a></li>
+                    <li><a href="Form.html"><i class="fa fa-briefcase"></i> JOBS</a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+
+    <!-- MAIN (Center website) -->
+    <div class="main">
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('nature')"> Nature</button>
+            <button class="btn" onclick="filterSelection('cars')"> Cars</button>
+            <button class="btn" onclick="filterSelection('people')"> People</button>
+        </div>
+
+        <!-- Portfolio Gallery Grid -->
+        <div class="row">
+            <table>
+                <tr>
+                    <td>
+                        <div class="box">
+                            <div class="column nature">
+                                <div class="content1">
+                                    <img src="CUSTOMIZED STAND PLANNING.jpg" alt="Lights" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">CUSTOMIZED STAND PLANNING</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <div class="column nature">
+                                <div class="content1">
+                                    <img src="wall.jpg" alt="Car" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">WALL PAINTING</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <div class="column nature">
+                                <div class="content1">
+                                    <img src="0ff298200e7a37235f71cbe29468faa8.jpg" alt="Nature" style="width:100%;">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">INSTALLATION</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div class="box">
+                            <div class="column cars">
+                                <div class="content1">
+                                    <img src="digital-printing.jpg" alt="Car" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">PRINTING</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <div class="column cars">
+                                <div class="content1">
+                                    <img src="site.jpg" alt="Car" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">SITE MANAGEMENT</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <div class="column cars">
+                                <div class="content1">
+                                    <img src="prod.jpg" alt="Car" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">PRODUCTION</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="box">
+                            <div class="column people">
+                                <div class="content1">
+                                    <img src="Graphics Production.jpg" alt="Mountains" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">GRAPHICS PRODUCTION</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <div class="column people">
+                                <div class="content1">
+                                    <img src="dis.jpg" alt="Car" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">DISMANDLING</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <div class="column people">
+                                <div class="content1">
+                                    <img src="led-star-inflatable-club-nightclub-decoration-prop-stage-light-up-decor-nightclubshop.jpg" alt="Car" style="width:100%">
+                                    <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;" align="center">STAGE DECORATION</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!-- END GRID -->
+        </div>
+
+        <!-- END MAIN -->
+    </div>
+
+    <script>
+        filterSelection("all")
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("column");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+    <!-- Footer -->
+  <footer class="py-5 bg-dark" style="background:#343a40">
+    <div class="container">
+      <br><br><p style="color: white;" class="m-0 text-center text-white">Copyright &copy; Event Management 2020</p><br>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

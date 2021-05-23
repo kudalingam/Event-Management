@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Image Hover</title>
+    <style>
+        @import url('http://fonts.googleapis.com/css2?family=Quicksand:wghs@300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: transparent;
+        }
+        
+        .containers {
+            position: relative;
+            width: 1200px;
+            height: 600px;
+            background: gray;
+        }
+        
+        .containers .clip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+        }
+        
+        .containers .clip.clip1 {
+            background: url(images/product.jpg);
+            clip-path: polygon(40% 0, 0 0, 0 100%, 30% 100%);
+        }
+        
+        .containers .clip.clip2 {
+            background: url(banner.jpg);
+            clip-path: polygon(82% 0, 40% 0, 30% 100%, 75% 100%);
+        }
+        
+        .containers .clip.clip3 {
+            background: url(Blog_1200x630_StartDesignBusiness_11_WorkSpace.png);
+            clip-path: polygon(100% 0, 82% 0, 75% 100%, 100% 100%);
+        }
+        
+        .containers:hover .clip {
+            clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        }
+        
+        .containers .clip:hover {
+            clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="containers">
+        <div class="clip clip1"></div>
+        <div class="clip clip2"></div>
+        <div class="clip clip3"></div>
+    </div>
+</body>
+
+</html>

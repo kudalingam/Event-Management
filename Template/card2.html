@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <title>Document</title>
+</head>
+<style>
+    *{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "montserrat";
+}
+body{
+  background: #333;
+}
+.middle1{
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%,-50%);
+}
+.middle2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.middle3{
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%,-50%);
+}
+.card{
+  cursor: pointer;
+  width: 300px;
+  height: 400px;
+}
+.front,.back{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform .6s linear;
+}
+.front img{
+  height: 100%;
+}
+.front{
+  transform: perspective(600px) rotateY(0deg);
+}
+.back{
+  background: #f1f1f1;
+  transform: perspective(600px) rotateY(180deg);
+}
+.back-content{
+  color: #2c3e50;
+  text-align: center;
+  width: 100%;
+}
+.sm{
+  margin: 20px 0;
+}
+.sm a{
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  color: #2c3e50;
+  font-size: 18px;
+  transition: 0.4s;
+  border-radius: 50%
+}
+.sm a:hover{
+  background: #2c3e50;
+  color: white;
+}
+.card:hover > .front{
+  transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover > .back{
+  transform: perspective(600px) rotateY(0deg);
+}
+
+</style>
+<body>
+    <div class="card middle1">
+        <div class="front">
+          <img src="img.jpg" alt="">
+        </div>
+        <div class="back">
+          <div class="back-content middle"><br><br><br>
+            <h2>Mr. Alex Benjamin</h2><br>
+            <span>Genaral Manager</span><br><br>
+            <h3>"There are some things money can't buy. For everything else, there's MasterCard."</h3>
+            <div class="sm">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a><br><br>
+              <span>iamalex1265@example.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card middle2">
+        <div class="front">
+            <img src="img.jpg" alt="">
+          </div>
+          <div class="back">
+            <div class="back-content middle"><br><br><br>
+              <h2>Mr. Alex Benjamin</h2><br>
+              <span>Genaral Manager</span><br><br>
+              <h3>"There are some things money can't buy. For everything else, there's MasterCard."</h3>
+              <div class="sm">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a><br><br>
+                <span>iamalex1265@example.com</span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="card middle3">
+        <div class="front">
+            <img src="img.jpg" alt="">
+          </div>
+          <div class="back">
+            <div class="back-content middle"><br><br><br>
+              <h2>Mr. Alex Benjamin</h2><br>
+              <span>Genaral Manager</span><br><br>
+              <h3>"There are some things money can't buy. For everything else, there's MasterCard."</h3>
+              <div class="sm">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a><br><br>
+                <span>iamalex1265@example.com</span>
+              </div>
+            </div>
+          </div>
+      </div>    
+</body>
+</html>

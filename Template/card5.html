@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins',sans-serif;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .cardd{
+        position: relative;
+        width: 20%;
+        height: 350px;
+        margin: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 20px;
+        background: linear-gradient(135deg,#d41e31,#491f8f);
+    }
+    .cardd img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 350px;
+        transition: 0.5s;
+    }
+    .cardd:hover img{
+        left: 80%;
+        height: 200px;
+    }
+    .cardd .contentt{
+        position: relative;
+        width: 50%;
+        left: 20%;
+        padding: 20px 20px 20px 40px;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s;
+    }
+    .cardd:hover .contentt{
+        opacity: 1;
+        visibility: visible;
+        left: 0;
+    }
+    .cardd .contentt h2{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        line-height: 1em;
+    }
+    .cardd .contentt p{
+        color: #fff;
+    }
+    .cardd .contentt a{
+        position: relative;
+        display: inline-block;
+        color: #111;
+        padding: 2px 4px;
+        border-radius: 5px;
+        background: #fff;
+        margin-top: 5px;
+        font-size: 15px;
+
+    }
+    .cardd .contentt h5{
+        color: #000;
+        text-transform: uppercase;
+        font-size: 1em;
+        line-height: 1em;
+    }
+    
+</style>
+<body>
+    <div class="cardd">
+        <div class="contentt">
+            <h2>Mr. Alex Benjamin</h2><br>
+            <h5><b>Genaral Manager</b></h5><br>
+            <p>"There are some things money can't buy. For everything else, there's MasterCard."</p><br>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a><br><br>
+              <a href="mailto:ankitalingam2210@gmail.com">iamalex1265@example.com</a>
+            </div>
+            <img src="images/f2.jpg" alt="">
+        </div>
+    </div>
+    <div class="cardd">
+        <div class="contentt">
+            <h2>Shilpa Krishnamoorthy</h2><br>
+            <h5><b>HR Manager</b></h5><br>
+            <p>"Creating strong, provocative relationships between good companies and their customers."</p><br>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a><br><br>
+              <a href="mailto:Shilpakrishnamoorthy_HR@gmail.com">Shilpakrishnamoorthy_HR@gmail.com</a>
+            </div>
+            <img src="images/f4.jpg" alt="">
+        </div>
+    </div>
+    <div class="cardd">
+        <div class="contentt">
+            <h2>S Krish</h2><br>
+            <h5><b>Technician</b></h5><br>
+            <p>"Opening a Graphic Design Business can be a very good business opportunity if you have Knowledge about Graphic terms."</p><br>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a><br><br>
+              <a href="mailto:krish1995@gmail.com">krish1995@gmail.com</a>
+            </div>
+            <img src="images/f5.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

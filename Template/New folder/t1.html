@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+  a{
+        position: relative;
+        display: inline-block;
+        padding: 15px 30px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-decoration: none;
+        font-size: 24px;
+        overflow: hidden;
+        transition: 0.2s;
+        color:white;
+        background: transparent;
+    }
+    a:hover{
+        color:#c0c0c0;
+        background: #2196f3;
+        box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+        transition-delay: 1s ;
+        background: transparent;
+
+    }
+    a span{
+        position: absolute;
+        display: block;
+    }
+    a span:nth-child(1){
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg,transparent,#2196f3);
+    }
+    a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+    }
+    a span:nth-child(3){
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg,transparent,#2196f3);
+    }
+    a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+    }
+    a span:nth-child(2){
+        top: -100%;
+        right: 0%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg,transparent,#2196f3);
+    }
+    a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+    }
+    a span:nth-child(4){
+        bottom: -100%;
+        left: 0%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg,transparent,#2196f3);
+    }
+    a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+    }
+    .navbar-inner{
+      background: transparent;
+    }
+</style>
+<body>
+
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right navbar-inner">
+        <li style="background: transparent;"><a href="">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Logout
+      </a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3>Inverted Navbar</h3>
+  <p>An inverted navbar is black instead of gray.</p>
+</div>
+
+</body>
+</html>
